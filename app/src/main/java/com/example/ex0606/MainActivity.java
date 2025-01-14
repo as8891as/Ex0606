@@ -11,9 +11,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     ImageView imageV;
     Button btn;
+    int imageNum;
+    Random rnd = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pressed(View view) {
-        imageV.setImageResource(R.drawable.image1);
+        imageNum=rnd.nextInt(3)+1;
+        if (imageNum==1)
+        {
+            imageV.setImageResource(R.drawable.image1);
+        }
+        else
+        {
+            if (imageNum==2)
+            {
+                imageV.setImageResource(R.drawable.image2);
+            }
+            else
+            {
+                imageV.setImageResource(R.drawable.image3);
+            }
+        }
+        btn.setText(""+imageNum);
     }
 }
